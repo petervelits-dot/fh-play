@@ -2690,6 +2690,9 @@ const PERF={
 //              0 = po starom (každý presun/útok sa čaká). aiParMax = najviac súbežných animácií
  aiPar:1,
  aiParMax:8,
+//  fro-077 aiLblFreeze: počas ťahu AI sa polohy armád v podpise podkladu a popisov riek (rlArmyKey) nemenia → pohyb armád AI
+//              neprekresľuje terén/hranice/cesty ani nerozmiestňuje popisy riek; po ťahu AI raz. 0 = po starom
+ aiLblFreeze:1,
 };
 // =====================================================================
 //  UI V3 — ikony a pomocníci (spoločné pre všetky časti UI; nemenia hernú logiku)
@@ -3028,7 +3031,7 @@ const SCN_META={
 // ({stub:true, kraje, cities:[{kraj}]}) — stačí menu a lobby (názvy a počty celkov), nie hre.
 // MAP_BUILD dopĺňa build.py: {cc:{kraje,cnt:[počet miest v celku],kb:veľkosť balíka}}
 const MAP_BUILD={"al": {"cnt": [2, 2, 4, 3, 3, 3, 6, 4, 4, 6, 3, 6], "kb": 1146, "kraje": [{"capital": "Tirana", "id": 0, "name": "Kraj Tirana"}, {"capital": "Durrës", "id": 1, "name": "Kraj Durrës"}, {"capital": "Shkodër", "id": 2, "name": "Kraj Shkodër"}, {"capital": "Lezhë", "id": 3, "name": "Kraj Lezhë"}, {"capital": "Kukës", "id": 4, "name": "Kraj Kukës"}, {"capital": "Peshkopi", "id": 5, "name": "Kraj Dibër"}, {"capital": "Elbasan", "id": 6, "name": "Kraj Elbasan"}, {"capital": "Fier", "id": 7, "name": "Kraj Fier"}, {"capital": "Berat", "id": 8, "name": "Kraj Berat"}, {"capital": "Vlorë", "id": 9, "name": "Kraj Vlorë"}, {"capital": "Gjirokastër", "id": 10, "name": "Kraj Gjirokastër"}, {"capital": "Korçë", "id": 11, "name": "Kraj Korçë"}]}, "at": {"cnt": [1, 15, 6, 15, 9, 13, 8, 13, 5], "kb": 1169, "kraje": [{"capital": "Wien", "id": 0, "name": "Viedeň"}, {"capital": "St. Pölten", "id": 1, "name": "Dolné Rakúsko"}, {"capital": "Eisenstadt", "id": 2, "name": "Burgenland"}, {"capital": "Graz", "id": 3, "name": "Štajersko"}, {"capital": "Klagenfurt", "id": 4, "name": "Korutánsko"}, {"capital": "Linz", "id": 5, "name": "Horné Rakúsko"}, {"capital": "Salzburg", "id": 6, "name": "Salzbursko"}, {"capital": "Innsbruck", "id": 7, "name": "Tirolsko"}, {"capital": "Bregenz", "id": 8, "name": "Vorarlbersko"}]}, "ba": {"cnt": [2, 7, 1, 7, 7, 1, 6, 8, 3, 5, 1, 9, 11, 10], "kb": 1118, "kraje": [{"capital": "Sarajevo", "id": 0, "name": "Sarajevský kantón"}, {"capital": "Bihać", "id": 1, "name": "Unsko-sanský kantón"}, {"capital": "Orašje", "id": 2, "name": "Posávsky kantón"}, {"capital": "Tuzla", "id": 3, "name": "Tuzlanský kantón"}, {"capital": "Zenica", "id": 4, "name": "Zenicko-dobojský kantón"}, {"capital": "Goražde", "id": 5, "name": "Bosniansko-podrinský kantón"}, {"capital": "Travnik", "id": 6, "name": "Stredobosniansky kantón"}, {"capital": "Mostar", "id": 7, "name": "Hercegovinsko-neretviansky kantón"}, {"capital": "Široki Brijeg", "id": 8, "name": "Západohercegovinský kantón"}, {"capital": "Livno", "id": 9, "name": "Livniansky kantón (Kantón 10)"}, {"capital": "Brčko", "id": 10, "name": "Distrikt Brčko"}, {"capital": "Banja Luka", "id": 11, "name": "Republika srbská – Banja Luka"}, {"capital": "Bijeljina", "id": 12, "name": "Republika srbská – Doboj a Bijeljina"}, {"capital": "Trebinje", "id": 13, "name": "Republika srbská – Východ a Trebinje"}]}, "be": {"cnt": [1, 5, 6, 6, 6, 5, 2, 7, 6, 6, 6], "kb": 1050, "kraje": [{"capital": "Bruxelles", "id": 0, "name": "Brusel"}, {"capital": "Antwerpen", "id": 1, "name": "Antverpy"}, {"capital": "Gent", "id": 2, "name": "Východné Flámsko"}, {"capital": "Brugge", "id": 3, "name": "Západné Flámsko"}, {"capital": "Hasselt", "id": 4, "name": "Limburg"}, {"capital": "Leuven", "id": 5, "name": "Flámsky Brabant"}, {"capital": "Wavre", "id": 6, "name": "Valónsky Brabant"}, {"capital": "Mons", "id": 7, "name": "Henegavsko"}, {"capital": "Liège", "id": 8, "name": "Lutych"}, {"capital": "Namur", "id": 9, "name": "Namur"}, {"capital": "Arlon", "id": 10, "name": "Luxemburg"}]}, "bg": {"cnt": [9, 13, 9, 7, 6, 6, 8, 4, 8, 12, 9, 11, 9], "kb": 1091, "kraje": [{"capital": "Sofia", "id": 0, "name": "Sofijský"}, {"capital": "Vratsa", "id": 1, "name": "Severozápadný"}, {"capital": "Pleven", "id": 2, "name": "Plevenský"}, {"capital": "Veliko Tarnovo", "id": 3, "name": "Tarnovský"}, {"capital": "Ruse", "id": 4, "name": "Rusenský"}, {"capital": "Shumen", "id": 5, "name": "Šumenský"}, {"capital": "Dobrich", "id": 6, "name": "Dobrudžský"}, {"capital": "Varna", "id": 7, "name": "Varniansky"}, {"capital": "Burgas", "id": 8, "name": "Burgaský"}, {"capital": "Stara Zagora", "id": 9, "name": "Starozagorský"}, {"capital": "Plovdiv", "id": 10, "name": "Plovdivský"}, {"capital": "Haskovo", "id": 11, "name": "Rodopský"}, {"capital": "Blagoevgrad", "id": 12, "name": "Juhozápadný"}]}, "by": {"cnt": [1, 16, 19, 16, 16, 21, 21], "kb": 1112, "kraje": [{"capital": "Minsk", "id": 0, "name": "Minsk"}, {"capital": "Brest", "id": 1, "name": "Brestská oblasť"}, {"capital": "Gomel", "id": 2, "name": "Gomeľská oblasť"}, {"capital": "Grodno", "id": 3, "name": "Grodnenská oblasť"}, {"capital": "Mogilev", "id": 4, "name": "Mogilevská oblasť"}, {"capital": "Borisov", "id": 5, "name": "Minská oblasť"}, {"capital": "Vitebsk", "id": 6, "name": "Vitebská oblasť"}]}, "ce": {"cnt": [42, 54, 60, 53, 43], "kb": 1239, "kraje": [{"capital": "Bratislava", "country": "sk", "id": 0, "name": "Slovensko"}, {"capital": "Praha", "country": "cz", "id": 1, "name": "Česko"}, {"capital": "Warszawa", "country": "pl", "id": 2, "name": "Poľsko"}, {"capital": "Budapest", "country": "hu", "id": 3, "name": "Maďarsko"}, {"capital": "Wien", "country": "at", "id": 4, "name": "Rakúsko"}]}, "ch": {"cnt": [11, 17, 8, 4, 19, 9, 6], "kb": 1082, "kraje": [{"capital": "Genève", "id": 0, "name": "Ženevská oblasť"}, {"capital": "Bern", "id": 1, "name": "Espace Mittelland"}, {"capital": "Basel", "id": 2, "name": "Severozápadné Švajčiarsko"}, {"capital": "Zürich", "id": 3, "name": "Zürich"}, {"capital": "St. Gallen", "id": 4, "name": "Východné Švajčiarsko"}, {"capital": "Luzern", "id": 5, "name": "Stredné Švajčiarsko"}, {"capital": "Lugano", "id": 6, "name": "Ticino"}]}, "cy": {"cnt": [4, 2, 2, 2, 6, 2], "kb": 244, "kraje": [{"capital": "Nicosia", "id": 0, "name": "Nikózia"}, {"capital": "Limassol", "id": 1, "name": "Limassol"}, {"capital": "Larnaca", "id": 2, "name": "Larnaka"}, {"capital": "Paphos", "id": 3, "name": "Pafos"}, {"capital": "Famagusta", "id": 4, "name": "Famagusta"}, {"capital": "Kyrenia", "id": 5, "name": "Kyrenia"}]}, "cz": {"cnt": [1, 11, 11, 6, 4, 9, 4, 6, 4, 7, 7, 6, 6, 9], "kb": 1004, "kraje": [{"capital": "Praha", "id": 0, "name": "Praha"}, {"capital": "Kladno", "id": 1, "name": "Stredočeský"}, {"capital": "České Budějovice", "id": 2, "name": "Juhočeský"}, {"capital": "Plzeň", "id": 3, "name": "Plzeňský"}, {"capital": "Karlovy Vary", "id": 4, "name": "Karlovarský"}, {"capital": "Ústí nad Labem", "id": 5, "name": "Ústecký"}, {"capital": "Liberec", "id": 6, "name": "Liberecký"}, {"capital": "Hradec Králové", "id": 7, "name": "Kralovohradecký"}, {"capital": "Pardubice", "id": 8, "name": "Pardubický"}, {"capital": "Jihlava", "id": 9, "name": "Vysočina"}, {"capital": "Brno", "id": 10, "name": "Juhomoravský"}, {"capital": "Olomouc", "id": 11, "name": "Olomoucký"}, {"capital": "Zlín", "id": 12, "name": "Zlínsky"}, {"capital": "Ostrava", "id": 13, "name": "Moravskosliezsky"}]}, "de": {"cnt": [2, 1, 2, 5, 6, 12, 8, 6, 15, 6, 6, 2, 10, 18, 5, 6], "kb": 1105, "kraje": [{"capital": "Berlin", "id": 0, "name": "Berlín"}, {"capital": "Hamburg", "id": 1, "name": "Hamburg"}, {"capital": "Bremen", "id": 2, "name": "Brémy"}, {"capital": "Kiel", "id": 3, "name": "Šlezvicko-Holštajnsko"}, {"capital": "Schwerin", "id": 4, "name": "Meklenbursko-Predné Pomoransko"}, {"capital": "Hannover", "id": 5, "name": "Dolné Sasko"}, {"capital": "Potsdam", "id": 6, "name": "Brandenbursko"}, {"capital": "Magdeburg", "id": 7, "name": "Sasko-Anhaltsko"}, {"capital": "Düsseldorf", "id": 8, "name": "Severné Porýnie-Vestfálsko"}, {"capital": "Wiesbaden", "id": 9, "name": "Hesensko"}, {"capital": "Mainz", "id": 10, "name": "Porýnie-Falcko"}, {"capital": "Saarbrücken", "id": 11, "name": "Sársko"}, {"capital": "Stuttgart", "id": 12, "name": "Bádensko-Württembersko"}, {"capital": "München", "id": 13, "name": "Bavorsko"}, {"capital": "Erfurt", "id": 14, "name": "Durínsko"}, {"capital": "Dresden", "id": 15, "name": "Sasko"}]}, "dk": {"cnt": [9, 17, 21, 16, 12], "kb": 601, "kraje": [{"capital": "København", "id": 0, "name": "Hlavné mesto"}, {"capital": "Sorø", "id": 1, "name": "Zéland"}, {"capital": "Vejle", "id": 2, "name": "Južné Dánsko"}, {"capital": "Viborg", "id": 3, "name": "Stredné Jutsko"}, {"capital": "Aalborg", "id": 4, "name": "Severné Jutsko"}]}, "ee": {"cnt": [9, 2, 7, 3, 4, 3, 5, 3, 7, 4, 4, 3, 3, 5, 3], "kb": 489, "kraje": [{"capital": "Tallinn", "id": 0, "name": "Harjumaa"}, {"capital": "Kärdla", "id": 1, "name": "Hiiumaa"}, {"capital": "Jõhvi", "id": 2, "name": "Ida-Virumaa"}, {"capital": "Jõgeva", "id": 3, "name": "Jõgevamaa"}, {"capital": "Paide", "id": 4, "name": "Järvamaa"}, {"capital": "Haapsalu", "id": 5, "name": "Läänemaa"}, {"capital": "Rakvere", "id": 6, "name": "Lääne-Virumaa"}, {"capital": "Põlva", "id": 7, "name": "Põlvamaa"}, {"capital": "Pärnu", "id": 8, "name": "Pärnumaa"}, {"capital": "Rapla", "id": 9, "name": "Raplamaa"}, {"capital": "Kuressaare", "id": 10, "name": "Saaremaa"}, {"capital": "Tartu", "id": 11, "name": "Tartumaa"}, {"capital": "Valga", "id": 12, "name": "Valgamaa"}, {"capital": "Viljandi", "id": 13, "name": "Viljandimaa"}, {"capital": "Võru", "id": 14, "name": "Võrumaa"}]}, "es": {"cnt": [2, 19, 7, 4, 8, 16, 12, 8, 9, 2, 8, 3, 4, 3, 1, 4], "kb": 1146, "kraje": [{"capital": "Madrid", "id": 0, "name": "Madridské spoločenstvo"}, {"capital": "Sevilla", "id": 1, "name": "Andalúzia"}, {"capital": "Barcelona", "id": 2, "name": "Katalánsko"}, {"capital": "Vitoria-Gasteiz", "id": 3, "name": "Baskicko"}, {"capital": "Santiago de Compostela", "id": 4, "name": "Galícia"}, {"capital": "Valladolid", "id": 5, "name": "Kastília a León"}, {"capital": "Toledo", "id": 6, "name": "Kastília-La Mancha"}, {"capital": "Valencia", "id": 7, "name": "Valencijské spoločenstvo"}, {"capital": "Zaragoza", "id": 8, "name": "Aragónsko"}, {"capital": "Pamplona", "id": 9, "name": "Navarra"}, {"capital": "Mérida", "id": 10, "name": "Extremadura"}, {"capital": "Murcia", "id": 11, "name": "Murcia"}, {"capital": "Oviedo", "id": 12, "name": "Asturias"}, {"capital": "Santander", "id": 13, "name": "Kantábria"}, {"capital": "Logroño", "id": 14, "name": "La Rioja"}, {"capital": "Palma", "id": 15, "name": "Baleáry"}]}, "fi": {"cnt": [9, 5, 5, 3, 6, 2, 3, 3, 4, 4, 5, 5, 5, 5, 2, 10, 4, 16, 1], "kb": 1202, "kraje": [{"capital": "Helsinki", "id": 0, "name": "Uusimaa"}, {"capital": "Turku", "id": 1, "name": "Vlastné Fínsko"}, {"capital": "Pori", "id": 2, "name": "Satakunta"}, {"capital": "Hämeenlinna", "id": 3, "name": "Kanta-Häme"}, {"capital": "Tampere", "id": 4, "name": "Pirkanmaa"}, {"capital": "Lahti", "id": 5, "name": "Päijät-Häme"}, {"capital": "Kouvola", "id": 6, "name": "Kymenlaakso"}, {"capital": "Lappeenranta", "id": 7, "name": "Južná Karélia"}, {"capital": "Mikkeli", "id": 8, "name": "Južné Savo"}, {"capital": "Kuopio", "id": 9, "name": "Severné Savo"}, {"capital": "Joensuu", "id": 10, "name": "Severná Karélia"}, {"capital": "Jyväskylä", "id": 11, "name": "Stredné Fínsko"}, {"capital": "Seinäjoki", "id": 12, "name": "Južná Pohjanmaa"}, {"capital": "Vaasa", "id": 13, "name": "Pohjanmaa"}, {"capital": "Kokkola", "id": 14, "name": "Stredná Pohjanmaa"}, {"capital": "Oulu", "id": 15, "name": "Severná Pohjanmaa"}, {"capital": "Kajaani", "id": 16, "name": "Kainuu"}, {"capital": "Rovaniemi", "id": 17, "name": "Laponsko"}, {"capital": "Mariehamn", "id": 18, "name": "Alandy"}]}, "fr": {"cnt": [2, 8, 13, 8, 7, 7, 6, 7, 14, 13, 14, 8, 3], "kb": 1223, "kraje": [{"capital": "Paris", "id": 0, "name": "Île-de-France"}, {"capital": "Lille", "id": 1, "name": "Hauts-de-France"}, {"capital": "Strasbourg", "id": 2, "name": "Grand Est"}, {"capital": "Rouen", "id": 3, "name": "Normandia"}, {"capital": "Rennes", "id": 4, "name": "Bretónsko"}, {"capital": "Nantes", "id": 5, "name": "Pays de la Loire"}, {"capital": "Orléans", "id": 6, "name": "Centre-Val de Loire"}, {"capital": "Dijon", "id": 7, "name": "Burgundsko-Franche-Comté"}, {"capital": "Lyon", "id": 8, "name": "Auvergne-Rhône-Alpes"}, {"capital": "Bordeaux", "id": 9, "name": "Nové Akvitánsko"}, {"capital": "Toulouse", "id": 10, "name": "Okcitánia"}, {"capital": "Marseille", "id": 11, "name": "Provence-Alpes-Côte d'Azur"}, {"capital": "Ajaccio", "id": 12, "name": "Korzika"}]}, "gr": {"cnt": [4, 11, 9, 16, 8, 8, 12, 13, 11, 6, 5, 4, 3], "kb": 1028, "kraje": [{"capital": "Athina", "id": 0, "name": "Atika"}, {"capital": "Thessaloniki", "id": 1, "name": "Stredná Macedónia"}, {"capital": "Iraklio", "id": 2, "name": "Kréta"}, {"capital": "Tripoli", "id": 3, "name": "Peloponéz"}, {"capital": "Larissa", "id": 4, "name": "Tesália"}, {"capital": "Ioannina", "id": 5, "name": "Epirus"}, {"capital": "Patra", "id": 6, "name": "Západné Grécko"}, {"capital": "Lamia", "id": 7, "name": "Stredné Grécko"}, {"capital": "Komotini", "id": 8, "name": "Východná Macedónia a Trácia"}, {"capital": "Kozani", "id": 9, "name": "Západná Macedónia"}, {"capital": "Kerkyra", "id": 10, "name": "Iónske ostrovy"}, {"capital": "Mytilini", "id": 11, "name": "Severné Egejské ostrovy"}, {"capital": "Ermoupoli", "id": 12, "name": "Južné Egejské ostrovy"}]}, "hr": {"cnt": [6, 2, 6, 3, 2, 3, 3, 6, 6, 3, 2, 2, 5, 6, 3, 4, 8, 7, 6, 1], "kb": 1197, "kraje": [{"capital": "Zagreb", "id": 0, "name": "Záhrebská (s mestom Záhreb)"}, {"capital": "Krapina", "id": 1, "name": "Krapinsko-zagorská"}, {"capital": "Sisak", "id": 2, "name": "Sisacko-moslavinská"}, {"capital": "Karlovac", "id": 3, "name": "Karlovacká"}, {"capital": "Varaždin", "id": 4, "name": "Varaždinská"}, {"capital": "Koprivnica", "id": 5, "name": "Koprivnicko-križevacká"}, {"capital": "Bjelovar", "id": 6, "name": "Bjelovarsko-bilogorská"}, {"capital": "Rijeka", "id": 7, "name": "Prímorsko-goranská"}, {"capital": "Gospić", "id": 8, "name": "Licko-senjská"}, {"capital": "Virovitica", "id": 9, "name": "Viroviticko-podravská"}, {"capital": "Požega", "id": 10, "name": "Požeško-slavónska"}, {"capital": "Slavonski Brod", "id": 11, "name": "Brodsko-posávska"}, {"capital": "Zadar", "id": 12, "name": "Zadarská"}, {"capital": "Osijek", "id": 13, "name": "Osijecko-baranská"}, {"capital": "Šibenik", "id": 14, "name": "Šibensko-kninská"}, {"capital": "Vukovar", "id": 15, "name": "Vukovarsko-sriemska"}, {"capital": "Split", "id": 16, "name": "Splitsko-dalmátska"}, {"capital": "Pazin", "id": 17, "name": "Istrijská"}, {"capital": "Dubrovnik", "id": 18, "name": "Dubrovnícko-neretvianska"}, {"capital": "Čakovec", "id": 19, "name": "Medzimurská"}]}, "hu": {"cnt": [1, 5, 4, 3, 4, 3, 4, 5, 6, 4, 4, 6, 4, 6, 5, 4, 5, 7, 4, 2], "kb": 1151, "kraje": [{"capital": "Budapest", "id": 0, "name": "Budapešť"}, {"capital": "Cegléd", "id": 1, "name": "Pest"}, {"capital": "Székesfehérvár", "id": 2, "name": "Fejér"}, {"capital": "Tatabánya", "id": 3, "name": "Komárom-Esztergom"}, {"capital": "Győr", "id": 4, "name": "Győr-Moson-Sopron"}, {"capital": "Szombathely", "id": 5, "name": "Vas"}, {"capital": "Zalaegerszeg", "id": 6, "name": "Zala"}, {"capital": "Veszprém", "id": 7, "name": "Veszprém"}, {"capital": "Kaposvár", "id": 8, "name": "Somogy"}, {"capital": "Pécs", "id": 9, "name": "Baranya"}, {"capital": "Szekszárd", "id": 10, "name": "Tolna"}, {"capital": "Kecskemét", "id": 11, "name": "Bács-Kiskun"}, {"capital": "Szeged", "id": 12, "name": "Csongrád-Csanád"}, {"capital": "Békéscsaba", "id": 13, "name": "Békés"}, {"capital": "Szolnok", "id": 14, "name": "Jász-Nagykun-Szolnok"}, {"capital": "Debrecen", "id": 15, "name": "Hajdú-Bihar"}, {"capital": "Nyíregyháza", "id": 16, "name": "Szabolcs-Szatmár-Bereg"}, {"capital": "Miskolc", "id": 17, "name": "Borsod-Abaúj-Zemplén"}, {"capital": "Eger", "id": 18, "name": "Heves"}, {"capital": "Salgótarján", "id": 19, "name": "Nógrád"}]}, "ie": {"cnt": [3, 9, 7, 13, 12, 12, 9, 16], "kb": 582, "kraje": [{"capital": "Dublin", "id": 0, "name": "Dublin"}, {"capital": "Drogheda", "id": 1, "name": "Stredovýchod"}, {"capital": "Athlone", "id": 2, "name": "Stred"}, {"capital": "Sligo", "id": 3, "name": "Pohraničie"}, {"capital": "Galway", "id": 4, "name": "Západ"}, {"capital": "Limerick", "id": 5, "name": "Stredozápad"}, {"capital": "Waterford", "id": 6, "name": "Juhovýchod"}, {"capital": "Cork", "id": 7, "name": "Juhozápad"}]}, "is": {"cnt": [2, 3, 5, 3, 3, 6, 8, 7], "kb": 397, "kraje": [{"capital": "Reykjavík", "id": 0, "name": "Hlavné mesto"}, {"capital": "Keflavík", "id": 1, "name": "Južný polostrov"}, {"capital": "Akranes", "id": 2, "name": "Západ"}, {"capital": "Ísafjörður", "id": 3, "name": "Západné fjordy"}, {"capital": "Sauðárkrókur", "id": 4, "name": "Severozápad"}, {"capital": "Akureyri", "id": 5, "name": "Severovýchod"}, {"capital": "Egilsstaðir", "id": 6, "name": "Východ"}, {"capital": "Selfoss", "id": 7, "name": "Juh"}]}, "it": {"cnt": [7, 1, 8, 4, 7, 4, 4, 8, 9, 3, 4, 7, 4, 2, 6, 7, 4, 6, 8, 7], "kb": 1159, "kraje": [{"capital": "Torino", "id": 0, "name": "Piemont"}, {"capital": "Aosta", "id": 1, "name": "Valle d'Aosta"}, {"capital": "Milano", "id": 2, "name": "Lombardsko"}, {"capital": "Trento", "id": 3, "name": "Trentinsko-Horná Adiža"}, {"capital": "Venezia", "id": 4, "name": "Benátsko"}, {"capital": "Trieste", "id": 5, "name": "Friulsko-Júlske Benátky"}, {"capital": "Genova", "id": 6, "name": "Ligúria"}, {"capital": "Bologna", "id": 7, "name": "Emília-Romagna"}, {"capital": "Firenze", "id": 8, "name": "Toskánsko"}, {"capital": "Perugia", "id": 9, "name": "Umbria"}, {"capital": "Ancona", "id": 10, "name": "Marky"}, {"capital": "Roma", "id": 11, "name": "Lazio"}, {"capital": "L'Aquila", "id": 12, "name": "Abruzzo"}, {"capital": "Campobasso", "id": 13, "name": "Molise"}, {"capital": "Napoli", "id": 14, "name": "Kampánia"}, {"capital": "Bari", "id": 15, "name": "Apúlia"}, {"capital": "Potenza", "id": 16, "name": "Basilicata"}, {"capital": "Catanzaro", "id": 17, "name": "Kalábria"}, {"capital": "Palermo", "id": 18, "name": "Sicília"}, {"capital": "Cagliari", "id": 19, "name": "Sardínia"}]}, "lt": {"cnt": [13, 9, 8, 11, 10, 8, 8, 8, 5, 7], "kb": 869, "kraje": [{"capital": "Vilnius", "id": 0, "name": "Vilniuský kraj"}, {"capital": "Kaunas", "id": 1, "name": "Kaunaský kraj"}, {"capital": "Klaipėda", "id": 2, "name": "Klaipėdský kraj"}, {"capital": "Šiauliai", "id": 3, "name": "Šiauliaiský kraj"}, {"capital": "Panevėžys", "id": 4, "name": "Panevėžyský kraj"}, {"capital": "Utena", "id": 5, "name": "Utenský kraj"}, {"capital": "Alytus", "id": 6, "name": "Alytuský kraj"}, {"capital": "Marijampolė", "id": 7, "name": "Marijampolský kraj"}, {"capital": "Tauragė", "id": 8, "name": "Tauragský kraj"}, {"capital": "Telšiai", "id": 9, "name": "Telšiaiský kraj"}]}, "lv": {"cnt": [18, 18, 16, 18, 15], "kb": 569, "kraje": [{"capital": "Rīga", "id": 0, "name": "Rižský región"}, {"capital": "Liepāja", "id": 1, "name": "Kurónsko"}, {"capital": "Jelgava", "id": 2, "name": "Zemgalsko"}, {"capital": "Valmiera", "id": 3, "name": "Vidzeme"}, {"capital": "Daugavpils", "id": 4, "name": "Latgalsko"}]}, "md": {"cnt": [5, 13, 4, 4, 7, 3, 4, 8], "kb": 1158, "kraje": [{"capital": "Chișinău", "id": 0, "name": "Kišiňov"}, {"capital": "Bălți", "id": 1, "name": "Sever"}, {"capital": "Orhei", "id": 2, "name": "Stred"}, {"capital": "Ungheni", "id": 3, "name": "Západ"}, {"capital": "Cahul", "id": 4, "name": "Juh"}, {"capital": "Căușeni", "id": 5, "name": "Juhovýchod"}, {"capital": "Comrat", "id": 6, "name": "Gagauzsko"}, {"capital": "Tiraspol", "id": 7, "name": "Podnestersko"}]}, "me": {"cnt": [3, 4, 4, 4, 4, 4], "kb": 857, "kraje": [{"capital": "Kotor", "id": 0, "name": "Boka Kotorská"}, {"capital": "Bar", "id": 1, "name": "Primorie"}, {"capital": "Podgorica", "id": 2, "name": "Podgorica a Zeta"}, {"capital": "Nikšić", "id": 3, "name": "Nikšić a Durmitor"}, {"capital": "Bijelo Polje", "id": 4, "name": "Sever (Bijelo Polje a Pljevlja)"}, {"capital": "Berane", "id": 5, "name": "Polimlje"}]}, "mk": {"cnt": [2, 4, 4, 5, 5, 7, 7, 6], "kb": 1114, "kraje": [{"capital": "Skopje", "id": 0, "name": "Skopský región"}, {"capital": "Kumanovo", "id": 1, "name": "Severovýchodný región"}, {"capital": "Tetovo", "id": 2, "name": "Pološský región"}, {"capital": "Ohrid", "id": 3, "name": "Juhozápadný región"}, {"capital": "Bitola", "id": 4, "name": "Pelagónsky región"}, {"capital": "Veles", "id": 5, "name": "Vardarský región"}, {"capital": "Štip", "id": 6, "name": "Východný región"}, {"capital": "Strumica", "id": 7, "name": "Juhovýchodný región"}]}, "nl": {"cnt": [6, 9, 2, 8, 7, 7, 5, 3, 4, 4, 6, 3], "kb": 938, "kraje": [{"capital": "Amsterdam", "id": 0, "name": "Severné Holandsko"}, {"capital": "Den Haag", "id": 1, "name": "Južné Holandsko"}, {"capital": "Utrecht", "id": 2, "name": "Utrecht"}, {"capital": "'s-Hertogenbosch", "id": 3, "name": "Severný Brabant"}, {"capital": "Arnhem", "id": 4, "name": "Gelderland"}, {"capital": "Maastricht", "id": 5, "name": "Limburg"}, {"capital": "Zwolle", "id": 6, "name": "Overijssel"}, {"capital": "Assen", "id": 7, "name": "Drenthe"}, {"capital": "Groningen", "id": 8, "name": "Groningen"}, {"capital": "Leeuwarden", "id": 9, "name": "Frísko"}, {"capital": "Middelburg", "id": 10, "name": "Zeeland"}, {"capital": "Lelystad", "id": 11, "name": "Flevoland"}]}, "no": {"cnt": [1, 3, 3, 4, 3, 5, 5, 6, 10, 6, 8, 11, 6, 11, 10], "kb": 1123, "kraje": [{"capital": "Oslo", "id": 0, "name": "Oslo"}, {"capital": "Lillestrøm", "id": 1, "name": "Akershus"}, {"capital": "Drammen", "id": 2, "name": "Buskerud"}, {"capital": "Sarpsborg", "id": 3, "name": "Østfold"}, {"capital": "Tønsberg", "id": 4, "name": "Vestfold"}, {"capital": "Skien", "id": 5, "name": "Telemark"}, {"capital": "Kristiansand", "id": 6, "name": "Agder"}, {"capital": "Stavanger", "id": 7, "name": "Rogaland"}, {"capital": "Bergen", "id": 8, "name": "Vestland"}, {"capital": "Molde", "id": 9, "name": "Møre og Romsdal"}, {"capital": "Steinkjer", "id": 10, "name": "Trøndelag"}, {"capital": "Bodø", "id": 11, "name": "Nordland"}, {"capital": "Tromsø", "id": 12, "name": "Troms"}, {"capital": "Vadsø", "id": 13, "name": "Finnmark"}, {"capital": "Hamar", "id": 14, "name": "Innlandet"}]}, "pl": {"cnt": [8, 5, 7, 7, 4, 5, 7, 6, 6, 9, 6, 3, 7, 7, 6, 7], "kb": 1142, "kraje": [{"capital": "Warszawa", "id": 0, "name": "Mazovské"}, {"capital": "Kraków", "id": 1, "name": "Malopoľské"}, {"capital": "Katowice", "id": 2, "name": "Sliezske"}, {"capital": "Wrocław", "id": 3, "name": "Dolnosliezske"}, {"capital": "Opole", "id": 4, "name": "Opolské"}, {"capital": "Gorzów Wielkopolski", "id": 5, "name": "Lubušské"}, {"capital": "Poznań", "id": 6, "name": "Veľkopoľské"}, {"capital": "Bydgoszcz", "id": 7, "name": "Kujavsko-pomoranské"}, {"capital": "Gdańsk", "id": 8, "name": "Pomoranské"}, {"capital": "Szczecin", "id": 9, "name": "Západopomoranské"}, {"capital": "Łódź", "id": 10, "name": "Lodžské"}, {"capital": "Kielce", "id": 11, "name": "Svätokrížske"}, {"capital": "Lublin", "id": 12, "name": "Lublinské"}, {"capital": "Rzeszów", "id": 13, "name": "Podkarpatské"}, {"capital": "Białystok", "id": 14, "name": "Podleské"}, {"capital": "Olsztyn", "id": 15, "name": "Varmsko-mazurské"}]}, "pt": {"cnt": [6, 5, 5, 4, 5, 6, 5, 6, 7, 5, 7, 6, 6, 6, 7, 7, 8, 9], "kb": 1082, "kraje": [{"capital": "Lisboa", "id": 0, "name": "Lisabon"}, {"capital": "Porto", "id": 1, "name": "Porto"}, {"capital": "Braga", "id": 2, "name": "Braga"}, {"capital": "Viana do Castelo", "id": 3, "name": "Viana do Castelo"}, {"capital": "Vila Real", "id": 4, "name": "Vila Real"}, {"capital": "Bragança", "id": 5, "name": "Bragança"}, {"capital": "Aveiro", "id": 6, "name": "Aveiro"}, {"capital": "Viseu", "id": 7, "name": "Viseu"}, {"capital": "Guarda", "id": 8, "name": "Guarda"}, {"capital": "Coimbra", "id": 9, "name": "Coimbra"}, {"capital": "Leiria", "id": 10, "name": "Leiria"}, {"capital": "Castelo Branco", "id": 11, "name": "Castelo Branco"}, {"capital": "Santarém", "id": 12, "name": "Santarém"}, {"capital": "Portalegre", "id": 13, "name": "Portalegre"}, {"capital": "Setúbal", "id": 14, "name": "Setúbal"}, {"capital": "Évora", "id": 15, "name": "Évora"}, {"capital": "Beja", "id": 16, "name": "Beja"}, {"capital": "Faro", "id": 17, "name": "Faro"}]}, "ro": {"cnt": [13, 17, 17, 18, 16, 2, 13, 14], "kb": 1035, "kraje": [{"capital": "Cluj-Napoca", "id": 0, "name": "Severozápad"}, {"capital": "Alba Iulia", "id": 1, "name": "Stred"}, {"capital": "Piatra Neamț", "id": 2, "name": "Severovýchod"}, {"capital": "Brăila", "id": 3, "name": "Juhovýchod"}, {"capital": "Călărași", "id": 4, "name": "Juh-Muntenia"}, {"capital": "București", "id": 5, "name": "Bukurešť-Ilfov"}, {"capital": "Craiova", "id": 6, "name": "Juhozápad-Oltenia"}, {"capital": "Timișoara", "id": 7, "name": "Západ"}]}, "rs": {"cnt": [4, 10, 11, 6, 9, 7, 10, 8, 11, 9, 9, 16], "kb": 1090, "kraje": [{"capital": "Beograd", "id": 0, "name": "Belehrad"}, {"capital": "Novi Sad", "id": 1, "name": "Báčka"}, {"capital": "Zrenjanin", "id": 2, "name": "Banát"}, {"capital": "Sremska Mitrovica", "id": 3, "name": "Srem"}, {"capital": "Kragujevac", "id": 4, "name": "Šumadija a Pomoravie"}, {"capital": "Valjevo", "id": 5, "name": "Mačva a Kolubara"}, {"capital": "Čačak", "id": 6, "name": "Zlatibor a Moravica"}, {"capital": "Kraljevo", "id": 7, "name": "Raška a Rasina"}, {"capital": "Požarevac", "id": 8, "name": "Braničevo a Timok"}, {"capital": "Niš", "id": 9, "name": "Nišava a Toplica"}, {"capital": "Leskovac", "id": 10, "name": "Jablanica a Pčinja"}, {"capital": "Priština", "id": 11, "name": "Kosovo a Metochia"}]}, "se": {"cnt": [5, 4, 4, 8, 4, 8, 14, 9, 3, 11, 5, 6, 5, 8, 5, 11], "kb": 1077, "kraje": [{"capital": "Stockholm", "id": 0, "name": "Štokholm"}, {"capital": "Uppsala", "id": 1, "name": "Uppsala"}, {"capital": "Nyköping", "id": 2, "name": "Södermanland"}, {"capital": "Örebro", "id": 3, "name": "Västmanland a Örebro"}, {"capital": "Linköping", "id": 4, "name": "Östergötland"}, {"capital": "Jönköping", "id": 5, "name": "Småland (Jönköping a Kronoberg)"}, {"capital": "Kalmar", "id": 6, "name": "Kalmar, Blekinge a Gotland"}, {"capital": "Malmö", "id": 7, "name": "Skåne"}, {"capital": "Halmstad", "id": 8, "name": "Halland"}, {"capital": "Göteborg", "id": 9, "name": "Västra Götaland"}, {"capital": "Karlstad", "id": 10, "name": "Värmland"}, {"capital": "Falun", "id": 11, "name": "Dalarna"}, {"capital": "Gävle", "id": 12, "name": "Gävleborg"}, {"capital": "Sundsvall", "id": 13, "name": "Stredné Norrland"}, {"capital": "Umeå", "id": 14, "name": "Västerbotten"}, {"capital": "Luleå", "id": 15, "name": "Norrbotten"}]}, "si": {"cnt": [3, 4, 3, 4, 1, 3, 3, 5, 3, 2, 4, 3], "kb": 1101, "kraje": [{"capital": "Murska Sobota", "id": 0, "name": "Pomurský"}, {"capital": "Maribor", "id": 1, "name": "Podravský"}, {"capital": "Slovenj Gradec", "id": 2, "name": "Korošský"}, {"capital": "Celje", "id": 3, "name": "Savinjský"}, {"capital": "Trbovlje", "id": 4, "name": "Zasavský"}, {"capital": "Krško", "id": 5, "name": "Posavský"}, {"capital": "Novo mesto", "id": 6, "name": "Juhovýchodné Slovinsko"}, {"capital": "Ljubljana", "id": 7, "name": "Stredoslovinský"}, {"capital": "Kranj", "id": 8, "name": "Gorenjský"}, {"capital": "Postojna", "id": 9, "name": "Prímorsko-notranjský"}, {"capital": "Nova Gorica", "id": 10, "name": "Gorišký"}, {"capital": "Koper", "id": 11, "name": "Pobrežno-krasový"}]}, "sk": {"cnt": [4, 7, 9, 7, 11, 13, 13, 7], "kb": 1741, "kraje": [{"capital": "Bratislava", "id": 0, "name": "Bratislavský kraj"}, {"capital": "Trnava", "id": 1, "name": "Trnavský kraj"}, {"capital": "Trenčín", "id": 2, "name": "Trenčiansky kraj"}, {"capital": "Nitra", "id": 3, "name": "Nitriansky kraj"}, {"capital": "Žilina", "id": 4, "name": "Žilinský kraj"}, {"capital": "Banská Bystrica", "id": 5, "name": "Banskobystrický kraj"}, {"capital": "Prešov", "id": 6, "name": "Prešovský kraj"}, {"capital": "Košice", "id": 7, "name": "Košický kraj"}]}, "ua": {"cnt": [5, 5, 5, 6, 5, 4, 5, 4, 6, 6, 5, 3, 5, 7, 7, 4, 5, 5, 10, 8], "kb": 1066, "kraje": [{"capital": "Kyiv", "id": 0, "name": "Kyjivský"}, {"capital": "Chernihiv", "id": 1, "name": "Černihivský"}, {"capital": "Sumy", "id": 2, "name": "Sumský"}, {"capital": "Kharkiv", "id": 3, "name": "Charkivský"}, {"capital": "Poltava", "id": 4, "name": "Poltavský"}, {"capital": "Cherkasy", "id": 5, "name": "Čerkaský"}, {"capital": "Zhytomyr", "id": 6, "name": "Žytomyrský"}, {"capital": "Vinnytsia", "id": 7, "name": "Vinnycký"}, {"capital": "Khmelnytskyi", "id": 8, "name": "Podolie"}, {"capital": "Rivne", "id": 9, "name": "Volyň"}, {"capital": "Lviv", "id": 10, "name": "Ľvovský"}, {"capital": "Uzhhorod", "id": 11, "name": "Zakarpatský"}, {"capital": "Ivano-Frankivsk", "id": 12, "name": "Prikarpatie-Bukovina"}, {"capital": "Odesa", "id": 13, "name": "Odeský"}, {"capital": "Mykolaiv", "id": 14, "name": "Mykolajivsko-kirovohradský"}, {"capital": "Kherson", "id": 15, "name": "Chersonský"}, {"capital": "Zaporizhzhia", "id": 16, "name": "Záporožský"}, {"capital": "Dnipro", "id": 17, "name": "Dnipropetrovský"}, {"capital": "Donetsk", "id": 18, "name": "Donbas"}, {"capital": "Simferopol", "id": 19, "name": "Krym"}]}, "uk": {"cnt": [1, 11, 11, 8, 8, 8, 9, 10, 5, 22, 10, 7], "kb": 1098, "kraje": [{"capital": "London", "id": 0, "name": "Londýn"}, {"capital": "Southampton", "id": 1, "name": "Juhovýchodné Anglicko"}, {"capital": "Bristol", "id": 2, "name": "Juhozápadné Anglicko"}, {"capital": "Cambridge", "id": 3, "name": "Východné Anglicko"}, {"capital": "Nottingham", "id": 4, "name": "East Midlands"}, {"capital": "Birmingham", "id": 5, "name": "West Midlands"}, {"capital": "Leeds", "id": 6, "name": "Yorkshire a Humber"}, {"capital": "Manchester", "id": 7, "name": "Severozápadné Anglicko"}, {"capital": "Newcastle upon Tyne", "id": 8, "name": "Severovýchodné Anglicko"}, {"capital": "Edinburgh", "id": 9, "name": "Škótsko"}, {"capital": "Cardiff", "id": 10, "name": "Wales"}, {"capital": "Belfast", "id": 11, "name": "Severné Írsko"}]}, "xb": {"cnt": [18, 35, 74, 32, 11, 16, 60], "kb": 1430, "kraje": [{"capital": "Tirana", "country": "al", "id": 0, "name": "Albánsko"}, {"capital": "Sarajevo", "country": "ba", "id": 1, "name": "Bosna a Hercegovina"}, {"capital": "Sofia", "country": "bg", "id": 2, "name": "Bulharsko"}, {"capital": "Zagreb", "country": "hr", "id": 3, "name": "Chorvátsko"}, {"capital": "Podgorica", "country": "me", "id": 4, "name": "Čierna Hora"}, {"capital": "Skopje", "country": "mk", "id": 5, "name": "Severné Macedónsko"}, {"capital": "Beograd", "country": "rs", "id": 6, "name": "Srbsko"}]}, "xc": {"cnt": [66, 25, 10, 28, 59, 28, 17, 14, 1], "kb": 1574, "kraje": [{"capital": "Berlin", "country": "de", "id": 0, "name": "Nemecko"}, {"capital": "Wien", "country": "at", "id": 1, "name": "Rakúsko"}, {"capital": "Bern", "country": "ch", "id": 2, "name": "Švajčiarsko"}, {"capital": "Praha", "country": "cz", "id": 3, "name": "Česko"}, {"capital": "Warszawa", "country": "pl", "id": 4, "name": "Poľsko"}, {"capital": "Budapest", "country": "hu", "id": 5, "name": "Maďarsko"}, {"capital": "Bratislava", "country": "sk", "id": 6, "name": "Slovensko"}, {"capital": "Ljubljana", "country": "si", "id": 7, "name": "Slovinsko"}, {"capital": "Vaduz", "country": "li", "id": 8, "name": "Lichtenštajnsko", "neutral": true}]}, "xe": {"cnt": [62, 17, 61, 110], "kb": 1552, "kraje": [{"capital": "Minsk", "country": "by", "id": 0, "name": "Bielorusko"}, {"capital": "Chișinău", "country": "md", "id": 1, "name": "Moldavsko"}, {"capital": "București", "country": "ro", "id": 2, "name": "Rumunsko"}, {"capital": "Kyiv", "country": "ua", "id": 3, "name": "Ukrajina"}]}, "xn": {"cnt": [24, 58, 69, 54, 20, 11, 14], "kb": 1590, "kraje": [{"capital": "København", "country": "dk", "id": 0, "name": "Dánsko"}, {"capital": "Oslo", "country": "no", "id": 1, "name": "Nórsko"}, {"capital": "Stockholm", "country": "se", "id": 2, "name": "Švédsko"}, {"capital": "Helsinki", "country": "fi", "id": 3, "name": "Fínsko"}, {"capital": "Tallinn", "country": "ee", "id": 4, "name": "Estónsko"}, {"capital": "Rīga", "country": "lv", "id": 5, "name": "Lotyšsko"}, {"capital": "Vilnius", "country": "lt", "id": 6, "name": "Litva"}]}, "xs": {"cnt": [110, 27, 73, 37, 1, 1, 1], "kb": 1674, "kraje": [{"capital": "Madrid", "country": "es", "id": 0, "name": "Španielsko"}, {"capital": "Lisboa", "country": "pt", "id": 1, "name": "Portugalsko"}, {"capital": "Roma", "country": "it", "id": 2, "name": "Taliansko"}, {"capital": "Athina", "country": "gr", "id": 3, "name": "Grécko"}, {"capital": "Andorra la Vella", "country": "ad", "id": 4, "name": "Andorra", "neutral": true}, {"capital": "San Marino", "country": "sm", "id": 5, "name": "San Maríno", "neutral": true}, {"capital": "Valletta", "country": "mt", "id": 6, "name": "Malta", "neutral": true}]}, "xw": {"cnt": [110, 19, 23, 71, 22, 1, 1], "kb": 1451, "kraje": [{"capital": "Paris", "country": "fr", "id": 0, "name": "Francúzsko"}, {"capital": "Bruxelles", "country": "be", "id": 1, "name": "Belgicko"}, {"capital": "Amsterdam", "country": "nl", "id": 2, "name": "Holandsko"}, {"capital": "London", "country": "uk", "id": 3, "name": "Spojené kráľovstvo"}, {"capital": "Dublin", "country": "ie", "id": 4, "name": "Írsko"}, {"capital": "Luxembourg", "country": "lu", "id": 5, "name": "Luxembursko", "neutral": true}, {"capital": "Monaco", "country": "mc", "id": 6, "name": "Monako", "neutral": true}]}};
-const FRONT_BUILD={"dirty": false, "h": "1275107", "t": "26. 11. 2026 17:06", "txt": "v38 · 26. 11. 2026 17:06 · 1275107", "v": "v38"};
+const FRONT_BUILD={"dirty": false, "h": "1cb26b2", "t": "26. 11. 2026 20:41", "txt": "v38 · 26. 11. 2026 20:41 · 1cb26b2", "v": "v38"};
 // katalóg máp základnej hry (poradie = poradie v menu)
 const MAP_CAT={
  sk:{},
@@ -4990,6 +4993,8 @@ function stateOf(c){
 }
 function stateName(sid){const S=G&&scOf(G),k=S&&S.kraje&&S.kraje[sid];return k?k.name:'Štát'}
 const stateCities=sid=>G&&G.dip?G.cities.filter(c=>c.kraj===sid&&c.owner<0&&stateOf(c)!=null):[];
+// fro-077: má štát sid aspoň jedno mesto? (= stateCities(sid).length > 0, bez poľa — volá sa v slučkách AI a pri každom príchode)
+const stateHas=sid=>!!(G&&G.dip)&&G.cities.some(c=>c.kraj===sid&&c.owner<0&&stateOf(c)!=null);
 const stateLost=sid=>G&&G.dip?G.cities.filter(c=>c.kraj===sid&&c.owner>=0&&stateOf(c)!=null):[];
 const statePower=sid=>Math.round(stateCities(sid).reduce((s,c)=>s+cityDef(c),0));
 function allyOf(sid){const D=G&&G.dip;if(!D||sid==null)return null;const v=D.ally[sid];return v==null?null:+v}
@@ -5166,7 +5171,7 @@ function buyArms(f,c,t){
 function dipCleanup(){
  const D=G&&G.dip;if(!D)return;
  D.states.forEach(s=>{
-  if(stateCities(s).length)return;
+  if(stateHas(s))return;
   let ch=false;
   if(D.ally[s]!=null){delete D.ally[s];ch=true}
   for(const f in D.war)if(D.war[f]&&D.war[f][s]!=null){delete D.war[f][s];ch=true}
@@ -6520,7 +6525,9 @@ async function endTurn(){
  if(typeof aiPreKick==='function')aiPreKick();
 }
 // v21: pri G.over skončí hneď (armády po konci hry už mapTick nespracuje)
-function waitArmies(){return new Promise(r=>{const ch=()=>(!G.over&&(G.armies.length||B||mpBusy()))?setTimeout(ch,60):r();ch()})}
+// fro-077: v prehliadači kontrola každých 16 ms (≈ 1 snímka) namiesto 60 ms — ťah AI nečaká zbytočne po príchode poslednej armády;
+//  sim (G.simFast) ostáva na 60 ms (virtuálne hodiny, rovnaký priebeh hry)
+function waitArmies(){const ms=G&&G.simFast?60:16;return new Promise(r=>{const ch=()=>(!G.over&&(G.armies.length||B||mpBusy()))?setTimeout(ch,ms):r();ch()})}
 
 // =====================================================================
 //  v14 AIR — letiská, transportné lietadlá a útočné drony (len strategická mapa)
@@ -7747,7 +7754,7 @@ function dip2Init(g){
 function d2(){if(!G)return dip2Norm(null);if(!G.dip2||!G.dip2.rel||!G.dip2.tr)G.dip2=dip2Norm(G.dip2);return G.dip2}
 const d2id=()=>d2().nid++;
 // --- partneri ---
-const pAlive=k=>{const p=pkParse(k);return p.kind==='f'?!!(G.alive&&G.alive[p.id]):!!(G.dip&&G.dip.states.includes(p.id)&&stateCities(p.id).length)};
+const pAlive=k=>{const p=pkParse(k);return p.kind==='f'?!!(G.alive&&G.alive[p.id]):!!(G.dip&&G.dip.states.includes(p.id)&&stateHas(p.id))};
 const pCities=k=>{const p=pkParse(k);return p.kind==='f'?own(p.id).length:stateCities(p.id).length};
 const pPow=k=>{const p=pkParse(k);return p.kind==='f'?facPow(p.id):statePower(p.id)};
 const pHuman=k=>{const p=pkParse(k);return p.kind==='f'&&isHuman(p.id)};
@@ -7761,7 +7768,7 @@ function partnerList(f){
   o.push({k,kind:p.kind,id:p.id,name:pkName(k),human:pHuman(k),rel:relOf(f,k),treaty:treatyOf(f,k),fee:feeOfK(f,k),power:pPow(k),cities:pCities(k),
    border:pBorder(f,k),war:!!w,vassal:p.kind==='f'&&vassalOf(p.id)===f,lord:p.kind==='f'&&vassalOf(f)===p.id,treaties:treatiesOf(f,k),emb:embOn(f,k)})};
  for(let g=0;g<G.nf;g++)if(g!==f&&G.alive[g])add(pk(g));
- if(G.dip)G.dip.states.forEach(s=>{if(stateCities(s).length)add(pk(s,true))});
+ if(G.dip)G.dip.states.forEach(s=>{if(stateHas(s))add(pk(s,true))});
  return o;
 }
 // --- dôvera ---
@@ -8239,7 +8246,7 @@ function coalCalc(f){
  if(own(f).length<(DIP2.coalMinCities||0)||G.turn<(DIP2.coalMinTurn||0))return o;
  o.on=o.share>DIP2.coalShare||o.pow>DIP2.coalPow;
  if(o.on){alive.forEach(g=>{if(g!==f&&!isHuman(g)&&!facAllied(f,g))o.members.push(pk(g))});
-  if(G.dip)G.dip.states.forEach(s=>{if(stateCities(s).length&&allyOf(s)!==f)o.members.push(pk(s,true))})}
+  if(G.dip)G.dip.states.forEach(s=>{if(stateHas(s)&&allyOf(s)!==f)o.members.push(pk(s,true))})}
  return o;
 }
 function coalitionVs(f){
@@ -8310,7 +8317,7 @@ function dip2OnHit(att,c){
 function guarAI(){
  if(!G.dip)return;
  for(let f=0;f<G.nf;f++){if(isHuman(f)||!G.alive[f])continue;
-  G.dip.states.forEach(s=>{const k=pk(s,true);if(guarOf(f,k)||!stateCities(s).length||Math.random()>=DIP2.guarP)return;
+  G.dip.states.forEach(s=>{const k=pk(s,true);if(guarOf(f,k)||!stateHas(s)||Math.random()>=DIP2.guarP)return;
    // dip2-ai-2: štáty na CE majú 3× a viac sily AI, preto podmienka „slabší než ja“ nevznikla nikdy;
    //  garancia teraz odstrašuje: štát susedí aj so súperom (iná frakcia, nie spojenec), najviac guarMax garancií na frakciu
    if(d2().tr.filter(t=>t.type==='guar'&&t.f===f).length>=(DIP2.guarMax||1))return;
@@ -8352,7 +8359,7 @@ function d2AtWar(f,k){
 function warsOf(f){
  if(!G||f==null||f<0)return [];
  const o=[];
- if(G.dip&&G.dip.war[f])for(const s in G.dip.war[f])if(stateCities(+s).length)o.push({k:pk(+s,true),since:+G.dip.war[f][s],score:warScore(f,pk(+s,true))});
+ if(G.dip&&G.dip.war[f])for(const s in G.dip.war[f])if(stateHas(+s))o.push({k:pk(+s,true),since:+G.dip.war[f][s],score:warScore(f,pk(+s,true))});
  const F=G.fal&&G.fal.fight;
  for(let g=0;g<G.nf;g++)if(g!==f&&G.alive[g]&&falRecent(f,g))o.push({k:pk(g),since:F[falKey(f,g)],score:warScore(f,pk(g))});
  return o;
@@ -8844,7 +8851,7 @@ function tresWarF(f,g){
 function tresFree(f,k){
  if(!G||f==null||f<0||!pkOk(k)||!(DIP2.tresT>0))return true;
  const p=pkParse(k);
- if(p.kind==='s'){if(!G.dip||!G.dip.states.includes(p.id)||!stateCities(p.id).length)return true;if(dipRel(f,p.id)!=='peace')return true}
+ if(p.kind==='s'){if(!G.dip||!G.dip.states.includes(p.id)||!stateHas(p.id))return true;if(dipRel(f,p.id)!=='peace')return true}
  else{const g=p.id;if(g===f||!G.alive[g]||!G.alive[f])return true;
   if(facAllied(f,g)||vassalOf(f)===g||vassalOf(g)===f||falRecent(f,g)||tresWarF(f,g))return true}
  if(hasTr(f,k,'pass')||d2Pass(f,k))return true;
@@ -12661,7 +12668,8 @@ function shieldPath(x,y,w){const t=y-w*1.05,b=y+w*1.4;ctx.beginPath();ctx.moveTo
 // =====================================================================
 // fro-043 (q-014): mapy Európy — odstup od ciest gapEU px (cesty vedú údoliami popri riekach), pri oddialení
 //  nad bigPx km/px len rieky s dĺžkou na mape ≥ bigKm km (Dunaj, Rýn, Labe, Visla…); krajinné mapy gap px
-const RLAB={on:true,fs:8.5,gap:3,gapEU:2,bigPx:1.5,bigKm:550,pad:1.5,step:14,offs:[0,.6],mg:.6,pend:0,n:0,rep:520,bend:.7,maxPer:10,cell:56,
+// fro-079 (q-031): v tom režime popis veľkej rieky ignoruje cesty tenšie ako thinPx px na obrazovke
+const RLAB={on:true,fs:8.5,gap:3,gapEU:2,bigPx:1.5,bigKm:550,thinPx:1,pad:1.5,step:14,offs:[0,.6],mg:.6,pend:0,n:0,rep:520,bend:.7,maxPer:10,cell:56,
  col:'rgba(198,226,244,.95)',halo:'rgba(8,22,34,.78)',colT:'rgba(24,62,110,.95)',haloT:'rgba(235,245,255,.7)',
  c:null,stat:{}};
 const _rlM=document.createElement('canvas').getContext('2d');
@@ -12688,20 +12696,31 @@ function _rlRivers(){
  return RLAB.rv={g:G,L};
 }
 // podpis armád a lietadiel v poli (viditeľných) — zmena = nové rozmiestnenie popisov
+// fro-077: počas ťahu AI (PERF.aiLblFreeze) sa kľúč zmrazí na stav zo začiatku ťahu — pohyb armád AI by inak každých
+//  PERF.layMs prekreslil celý podklad (terén, hranice, cesty) a znova rozmiestnil popisy riek; po ťahu AI sa prepočíta raz.
+//  Len kresba: popis rieky môže počas ťahu AI chvíľu ležať pod ikonou armády.
 function rlArmyKey(){
- if(!G)return '';let h=0,n=0;
+ if(!G)return '';
+ const fz=G.inAI&&typeof PERF==='object'&&PERF.aiLblFreeze>0;
+ if(fz&&RLAB.akG===G&&RLAB.akF!=null)return RLAB.akF;
+ const k=rlArmyKey0();
+ if(fz){RLAB.akG=G;RLAB.akF=k}else RLAB.akF=null;
+ return k;
+}
+function rlArmyKey0(){
+ let h=0,n=0;
  (G.fArmies||[]).forEach(a=>{if(typeof faVisible==='function'&&!faVisible(a))return;n++;h=(Math.imul(h,31)+Math.round(a.x*3)*7+Math.round(a.y*3)*13)|0});
  (G.fAir||[]).forEach(a=>{n++;h=(Math.imul(h,31)+Math.round(a.x*3)*5+Math.round(a.y*3)*11)|0});
  return n+':'+h;
 }
 // ---------- prekážky: segmenty s polomerom (čiary) a konvexné mnohouholníky (obdĺžniky) v mriežke ----------
 function _rlGrid(cs){
- const O=[],M=new Map(),G_={kind:''};
- const add=(o,x0,y0,x1,y1)=>{const id=O.length;o.k=G_.kind;O.push(o);
+ const O=[],M=new Map(),G_={kind:'',th:0};
+ const add=(o,x0,y0,x1,y1)=>{const id=O.length;o.k=G_.kind;if(G_.th)o.th=1;O.push(o);
   const i0=Math.floor(x0/cs),i1=Math.floor(x1/cs),j0=Math.floor(y0/cs),j1=Math.floor(y1/cs);
   if((i1-i0+1)*(j1-j0+1)>4000)return;
   for(let i=i0;i<=i1;i++)for(let j=j0;j<=j1;j++){const k=i*1048576+j;let a=M.get(k);if(!a)M.set(k,a=[]);a.push(id)}};
- return {O,M,cs,st:new Int32Array(0),stamp:0,set kind(v){G_.kind=v},
+ return {O,M,cs,st:new Int32Array(0),stamp:0,set kind(v){G_.kind=v},set thin(v){G_.th=v?1:0},
   seg(ax,ay,bx,by,r){add({t:0,ax,ay,bx,by,r},Math.min(ax,bx)-r,Math.min(ay,by)-r,Math.max(ax,bx)+r,Math.max(ay,by)+r)},
   rect(x0,y0,x1,y1){add({t:1,P:[[x0,y0],[x1,y0],[x1,y1],[x0,y1]]},x0,y0,x1,y1)},
   poly(P){let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;P.forEach(([x,y])=>{x0=Math.min(x0,x);y0=Math.min(y0,y);x1=Math.max(x1,x);y1=Math.max(y1,y)});add({t:1,P},x0,y0,x1,y1)},
@@ -12731,13 +12750,14 @@ function _rlPolyBox(Q,hw,hh){
  return true;
 }
 // natočený obdĺžnik (stred cx,cy, uhol a, polrozmery hw,hh vo svete) narazí na prekážku?
-function _rlHit(Gr,cx,cy,a,hw,hh){
+// skipThin: tenké cesty (o.th) sa ignorujú (fro-079: veľké rieky pri oddialení Európy)
+function _rlHit(Gr,cx,cy,a,hw,hh,skipThin){
  const co=Math.cos(a),si=Math.sin(a),ex=Math.abs(co)*hw+Math.abs(si)*hh,ey=Math.abs(si)*hw+Math.abs(co)*hh,cs=Gr.cs;
  const i0=Math.floor((cx-ex)/cs),i1=Math.floor((cx+ex)/cs),j0=Math.floor((cy-ey)/cs),j1=Math.floor((cy+ey)/cs);
  if(Gr.st.length<Gr.O.length){Gr.st=new Int32Array(Gr.O.length+256)}
  const stp=++Gr.stamp,L=(x,y)=>[(x-cx)*co+(y-cy)*si,-(x-cx)*si+(y-cy)*co];
  for(let i=i0;i<=i1;i++)for(let j=j0;j<=j1;j++){const A=Gr.M.get(i*1048576+j);if(!A)continue;
-  for(const id of A){if(Gr.st[id]===stp)continue;Gr.st[id]=stp;const o=Gr.O[id];
+  for(const id of A){if(Gr.st[id]===stp)continue;Gr.st[id]=stp;const o=Gr.O[id];if(skipThin&&o.th)continue;
    if(o.t===0){const p=L(o.ax,o.ay),q=L(o.bx,o.by);if(_rlSegBox(p[0],p[1],q[0],q[1],hw,hh)<o.r)return o}
    else if(_rlPolyBox(o.P.map(([x,y])=>L(x,y)),hw,hh))return o}}
  return null;
@@ -12755,9 +12775,11 @@ function _rlObstacles(Gr,s,x0,y0,x1,y1){
  G.edges.forEach(([i,j])=>{const a=G.cities[i],b=G.cities[j];if(!a||!b)return;
   const key=i+'_'+j,up=G.roads&&(G.roads[key]||G.roads[j+'_'+i]),fe=FS.has(key)||FS.has(j+'_'+i);
   let P=R&&!fe?(R[key]||(R[j+'_'+i]&&R[j+'_'+i].slice().reverse())):null;if(!P)P=[a,b];
-  const r=(fe?FERRY.wCasing*lk/2:Math.max(wR,up?wUp:0))+gap;
-  Gr.line(P,r,x0,y0,x1,y1,mw)});
- (G.projects||[]).forEach(p=>{const P=typeof roadPts==='function'?roadPts(p.a,p.b):[G.cities[p.a],G.cities[p.b]];Gr.line(P,9*rw*lk/2+gap,x0,y0,x1,y1,mw)});
+  const hw=fe?FERRY.wCasing*lk/2:Math.max(wR,up?wUp:0);
+  // fro-079: cesta tenšia ako RLAB.thinPx na obrazovke = tenká (smie ju prekryť popis veľkej rieky pri oddialení Európy)
+  Gr.thin=2*hw*s<RLAB.thinPx;Gr.line(P,hw+gap,x0,y0,x1,y1,mw)});
+ (G.projects||[]).forEach(p=>{const P=typeof roadPts==='function'?roadPts(p.a,p.b):[G.cities[p.a],G.cities[p.b]];const hw=9*rw*lk/2;Gr.thin=2*hw*s<RLAB.thinPx;Gr.line(P,hw+gap,x0,y0,x1,y1,mw)});
+ Gr.thin=false;
  // hranice: krajina (3·lzk) a štáty (6·lzk)
  Gr.kind='hranica';
  if(G.sk&&G.outline){const S0=scOf(G);
@@ -12798,7 +12820,7 @@ function _rlObstacles(Gr,s,x0,y0,x1,y1){
 // rozmiestnenie popisov v oblasti okolo výrezu kamery
 function rlPlace(){
  const s=V.s||1,vx0=-V.ox/s,vy0=-V.oy/s,vx1=(V.w-V.ox)/s,vy1=(V.h-V.oy)/s,vw=vx1-vx0,vh=vy1-vy0;
- const key=[dcOid(G),s.toFixed(6),RLAB.gapEU,RLAB.bigKm,RLAB.bigPx,realLook()?1:0,typeof roadRoutesBg==='function'&&realLook()?dcOid(roadRoutesBg()):0,Object.keys(G.roads||{}).length,(G.projects||[]).length,rlArmyKey(),cityK().toFixed(6)].join('|');
+ const key=[dcOid(G),s.toFixed(6),RLAB.gapEU,RLAB.bigKm,RLAB.bigPx,RLAB.thinPx,realLook()?1:0,typeof roadRoutesBg==='function'&&realLook()?dcOid(roadRoutesBg()):0,Object.keys(G.roads||{}).length,(G.projects||[]).length,rlArmyKey(),cityK().toFixed(6)].join('|');
  const C=RLAB.c,M=terrain.M||0,cx0=Math.max(-M,vx0),cy0=Math.max(-M,vy0),cx1=Math.min(W+M,vx1),cy1=Math.min(H+M,vy1);
  if(C&&C.key===key&&cx0>=C.x0&&cy0>=C.y0&&cx1<=C.x1&&cy1<=C.y1)return C;
  const t0=performance.now();
@@ -12809,6 +12831,8 @@ function rlPlace(){
  const bigOnly=rlBigOnly();
  for(const rv of _rlRivers().L){
   if(bigOnly&&rv.km<RLAB.bigKm)continue;
+  // fro-079 (q-031): veľká rieka pri oddialení Európy smie prekryť tenkú cestu
+  const skipThin=bigOnly&&rv.km>=RLAB.bigKm;
   const tw=_rlText(rv.name,font),hw=tw/2+RLAB.pad,rh=(rl?4.2:10)*rv.k/2*s,off=rh+2+hh;
   const CS=[];
   rv.seg.forEach((S,si)=>{const b=S.bb;if(b[2]<x0||b[0]>x1||b[3]<y0||b[1]>y1)return;
@@ -12835,7 +12859,7 @@ function rlPlace(){
   for(const c of CS){
    if(mine.length>=RLAB.maxPer)break;
    if(mine.some(m=>Math.hypot(m.x-c.x,m.y-c.y)*s<RLAB.rep))continue;
-   const hb=_rlHit(Gr,c.x,c.y,c.a,hw/s,hh/s);if(hb){if(RLAB.dbg)RLAB.dbg[hb.k]=(RLAB.dbg[hb.k]||0)+1;continue}
+   const hb=_rlHit(Gr,c.x,c.y,c.a,hw/s,hh/s,skipThin);if(hb){if(RLAB.dbg)RLAB.dbg[hb.k]=(RLAB.dbg[hb.k]||0)+1;continue}
    const l={name:rv.name,x:c.x,y:c.y,a:c.a,hw:hw/s,hh:hh/s};mine.push(l);out.push(l);if(c.x>vx0&&c.x<vx1&&c.y>vy0&&c.y<vy1)nV.add(rv.name);
    Gr.kind='popis';Gr.poly(rlCorners(l,2/s));
   }
@@ -14253,17 +14277,65 @@ function faEnemyCity(f, c) {
 const faEnemyArmy = (f, a) => a.owner !== f && !(a.owner >= 0 && f >= 0 && typeof facAllied === 'function' && facAllied(f, a.owner));
 // ZOC: Int32 id zdroja (mesto = id+1, armáda = 100000+id) + vzdialenosť v bunkách
 function faZoc(f, g, skipId) {
+  const ec = G.cities.map(c => faEnemyCity(f, c) ? 1 : 0), ea = [];
+  (G.fArmies || []).forEach(a => { if (a.id !== skipId && faEnemyArmy(f, a)) ea.push(a.id, a.x, a.y); });
+  return faZocS(g, faZocSrc(ec, ea));
+}
+// fro-077: zdroje ZOC v poradí kresby (mestá podľa indexu, potom armády v poradí G.fArmies) → [sid, cx, cy, …]
+//  ec[i] = mesto i je nepriateľské, ea = [id, x, y, …] nepriateľských armád
+function faZocSrc(ec, ea) {
+  const S = [];
+  G.cities.forEach((c, i) => { if (ec[i]) { const [cx, cy] = faCellOf(c.x, c.y); S.push(c.id + 1, cx, cy); } });
+  for (let i = 0; i < ea.length; i += 3) { const [cx, cy] = faCellOf(ea[i + 1], ea[i + 2]); S.push(100000 + ea[i], cx, cy); }
+  return S;
+}
+function faZocS(g, S) {
   const n = g.w * g.h, id = new Int32Array(n), dist = new Float32Array(n).fill(1e9), r = MOVE.zocKm / g.cellKm, src = {};
-  const put = (x, y, sid) => {
-    const [cx, cy] = faCellOf(x, y); src[sid] = [cx, cy];
+  for (let q = 0; q < S.length; q += 3) {
+    const sid = S[q], cx = S[q + 1], cy = S[q + 2]; src[sid] = [cx, cy];
     for (let j = Math.max(0, Math.floor(cy - r)); j <= Math.min(g.h - 1, Math.ceil(cy + r)); j++)
       for (let i = Math.max(0, Math.floor(cx - r)); i <= Math.min(g.w - 1, Math.ceil(cx + r)); i++) {
         const d = Math.hypot(i - cx, j - cy); const k = j * g.w + i;
         if (d <= r && d < dist[k]) { dist[k] = d; id[k] = sid; }
       }
-  };
-  G.cities.forEach(c => { if (faEnemyCity(f, c)) put(c.x, c.y, c.id + 1); });
-  (G.fArmies || []).forEach(a => { if (a.id !== skipId && faEnemyArmy(f, a)) put(a.x, a.y, 100000 + a.id); });
+  }
+  return { id, dist, src };
+}
+// fro-077: ZOC z predchádzajúcej (Z0, zdroje S0) — prepočítajú sa len bunky v dosahu zmenených zdrojov; každá taká bunka
+//  prejde zdroje S v pôvodnom poradí s rovnakým porovnaním (Float32 dist) → bit-rovnaké s faZocS(g, S). null = treba celú.
+function faZocInc(g, Z0, S0, S) {
+  const r = MOVE.zocKm / g.cellKm, K = (A, q) => A[q] * 1e6 + A[q + 1] * 1000 + A[q + 2];
+  if (g.w > 1000 || g.h > 1000) return null;
+  const k0 = new Set(), k1 = new Set();
+  for (let q = 0; q < S0.length; q += 3) k0.add(K(S0, q));
+  for (let q = 0; q < S.length; q += 3) k1.add(K(S, q));
+  // spoločné zdroje musia mať rovnaké vzájomné poradie
+  const c0 = [], c1 = [];
+  for (let q = 0; q < S0.length; q += 3) { const k = K(S0, q); if (k1.has(k)) c0.push(k); }
+  for (let q = 0; q < S.length; q += 3) { const k = K(S, q); if (k0.has(k)) c1.push(k); }
+  if (c0.length !== c1.length) return null;
+  for (let i = 0; i < c0.length; i++) if (c0[i] !== c1[i]) return null;
+  const ch = [];
+  for (let q = 0; q < S0.length; q += 3) if (!k1.has(K(S0, q))) ch.push(S0[q + 1], S0[q + 2]);
+  for (let q = 0; q < S.length; q += 3) if (!k0.has(K(S, q))) ch.push(S[q + 1], S[q + 2]);
+  if (ch.length > 2 * 400) return null;
+  const id = Z0.id.slice(), dist = Z0.dist.slice(), src = {}, cells = new Set();
+  for (let q = 0; q < S.length; q += 3) src[S[q]] = [S[q + 1], S[q + 2]];
+  for (let q = 0; q < ch.length; q += 2) {
+    const cx = ch[q], cy = ch[q + 1];
+    for (let j = Math.max(0, Math.floor(cy - r)); j <= Math.min(g.h - 1, Math.ceil(cy + r)); j++)
+      for (let i = Math.max(0, Math.floor(cx - r)); i <= Math.min(g.w - 1, Math.ceil(cx + r)); i++)
+        if (Math.hypot(i - cx, j - cy) <= r) cells.add(j * g.w + i);
+  }
+  const big = Math.fround(1e9);
+  for (const k of cells) {
+    const i = k % g.w, j = (k - i) / g.w; let bd = big, bi = 0;
+    for (let q = 0; q < S.length; q += 3) {
+      const cx = S[q + 1], cy = S[q + 2]; if (Math.abs(cx - i) > r + 1 || Math.abs(cy - j) > r + 1) continue;
+      const d = Math.hypot(i - cx, j - cy); if (d <= r && d < bd) { bd = Math.fround(d); bi = S[q]; }
+    }
+    dist[k] = bd; id[k] = bi;
+  }
   return { id, dist, src };
 }
 function faCtx(f, skipId) {
@@ -14287,22 +14359,66 @@ function faCtxSig(f) {
   for (const a of (G.fArmies || [])) if (faEnemyArmy(f, a)) s += '|' + a.id + ':' + a.x + ':' + a.y;
   return s;
 }
+// fro-077: memo faCtx0 podľa presných vstupov — priateľské mestá (fr), mestá partnerov v mieri (pc), nepriateľské mestá
+//  a armády v poli (ZOC, poloha), človek/AI. Rovnaké vstupy → rovnaké masky a ZOC; drahé prechody mriežky sa preskočia.
+//  Kontext sa nemení (nikto nezapisuje do masiek ani Z), funkcie v ňom čítajú živý stav ako predtým.
+const FACTX = { g: null, grid: null, vor: null, m: new Map(), cells: null, hit: 0, miss: 0 };
+const sameArr = (a, b) => { if (a === b) return true; if (!a || !b || a.length !== b.length) return false; for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false; return true; };
 function faCtx0(f, skipId, g) {
-  const fr = G.cities.map(c => faFriendlyCity(f, c) ? 0 : 1), m = new Uint8Array(g.w * g.h);
-  for (let k = 0; k < m.length; k++) m[k] = FA.vor[k] >= 0 ? fr[FA.vor[k]] : 1;
-  // v33: AI — územie partnerov v mieri (výzva na odchod, potom vojna) je pre plánovanie trasy drahšie
-  let av = null;
-  if (!isHuman(f) && f >= 0 && typeof tresAvoidCities === 'function') {
-    const pc = tresAvoidCities(f);
-    if (pc) { av = new Uint8Array(g.w * g.h); for (let k = 0; k < av.length; k++) av[k] = FA.vor[k] >= 0 ? pc[FA.vor[k]] : 0; }
+  // ec = faEnemyCity (mesto, ktoré nie je priateľské: frakcia alebo štát vo vojne) bez druhého volania faFriendlyCity
+  const n = G.cities.length, fr = new Uint8Array(n), ec = new Uint8Array(n);
+  for (let i = 0; i < n; i++) { const c = G.cities[i]; if (faFriendlyCity(f, c)) fr[i] = 0; else { fr[i] = 1; ec[i] = c.owner >= 0 || (typeof dipWarCity === 'function' && dipWarCity(f, c)) ? 1 : 0; } }
+  const hum = isHuman(f);
+  const pc = !hum && f >= 0 && typeof tresAvoidCities === 'function' ? tresAvoidCities(f) : null;
+  const ea = [];
+  (G.fArmies || []).forEach(a => { if (a.id !== skipId && faEnemyArmy(f, a)) ea.push(a.id, a.x, a.y); });
+  if (FACTX.g !== G || FACTX.grid !== g || FACTX.vor !== FA.vor) { FACTX.g = G; FACTX.grid = g; FACTX.vor = FA.vor; FACTX.m.clear(); FACTX.cells = null; }
+  const am = (typeof DIP2 === 'object' && DIP2.tresAvoid) || 1;
+  const key = f + ':' + (hum ? 1 : 0), e = FACTX.m.get(key);
+  if (e && sameArr(e.fr, fr) && sameArr(e.ec, ec) && sameArr(e.pc, pc) && sameArr(e.ea, ea) && e.heur === MOVE.ai.heur && e.am === am) { FACTX.hit++; return e.ctx; }
+  FACTX.miss++;
+  const S = faZocSrc(ec, ea);
+  const o = faCtx00(f, g, fr, pc, S, hum, e && e.heur === MOVE.ai.heur && e.am === am ? e : null);
+  FACTX.m.set(key, { fr, ec, pc, ea, S, heur: MOVE.ai.heur, am, ctx: o.ctx, m: o.m, av: o.av, Z: o.Z });
+  return o.ctx;
+}
+// fro-077: bunky mriežky podľa mesta (inverzný Voronoi FA.vor) — CSR: bunky mesta i sú L[A[i]..A[i+1])
+function faVorCells() {
+  if (FACTX.cells && FACTX.cells.vor === FA.vor) return FACTX.cells;
+  const V = FA.vor, n = G.cities.length, A = new Int32Array(n + 1);
+  for (let k = 0; k < V.length; k++) if (V[k] >= 0) A[V[k] + 1]++;
+  for (let i = 0; i < n; i++) A[i + 1] += A[i];
+  const L = new Int32Array(A[n]), p = A.slice(0, n);
+  for (let k = 0; k < V.length; k++) if (V[k] >= 0) L[p[V[k]]++] = k;
+  return (FACTX.cells = { vor: V, A, L });
+}
+// e = predchádzajúci kontext tej istej frakcie (fro-077): masky a ZOC sa len opravia v bunkách zmenených miest/zdrojov
+function faCtx00(f, g, fr, pc, S, hum, e) {
+  let m = null, av = null, Z = null;
+  const C = e ? faVorCells() : null, n = fr.length;
+  if (e && e.m && e.fr.length === n) {
+    m = e.m.slice();
+    for (let i = 0; i < n; i++) if (e.fr[i] !== fr[i]) { const v = fr[i]; for (let q = C.A[i]; q < C.A[i + 1]; q++) m[C.L[q]] = v; }
+  } else {
+    m = new Uint8Array(g.w * g.h);
+    for (let k = 0; k < m.length; k++) m[k] = FA.vor[k] >= 0 ? fr[FA.vor[k]] : 1;
   }
-  const Z = faZoc(f, g, skipId);
-  return {
+  // v33: AI — územie partnerov v mieri (výzva na odchod, potom vojna) je pre plánovanie trasy drahšie
+  if (pc) {
+    if (e && e.av && e.pc && e.pc.length === n) {
+      av = e.av.slice();
+      for (let i = 0; i < n; i++) if (e.pc[i] !== pc[i]) { const v = pc[i]; for (let q = C.A[i]; q < C.A[i + 1]; q++) av[C.L[q]] = v; }
+    } else { av = new Uint8Array(g.w * g.h); for (let k = 0; k < av.length; k++) av[k] = FA.vor[k] >= 0 ? pc[FA.vor[k]] : 0; }
+  }
+  if (e && e.Z && e.S) Z = faZocInc(g, e.Z, e.S, S);
+  if (!Z) Z = faZocS(g, S);
+  const ctx = {
     owner: (x, y) => { const v = FA.vor[y * g.w + x]; return v >= 0 ? G.cities[v].owner : -1; },
     isFriendly: o => o === f || (o >= 0 && f >= 0 && typeof facAllied === 'function' && facAllied(f, o)),
     hostileMask: m, avoidMaskP: av, avoidMul: (typeof DIP2 === 'object' && DIP2.tresAvoid) || 1, zocAt: (x, y) => Z.id[y * g.w + x] || false, Z,
-    heurWeight: isHuman(f) ? 1.0 : (MOVE.ai.heur || 1.5)
+    heurWeight: hum ? 1.0 : (MOVE.ai.heur || 1.5)
   };
+  return { ctx, m, av, Z };
 }
 
 // --- armády ---
@@ -14643,9 +14759,22 @@ const faCityShH = () => {
 const faArmyS = () => FA_SH.rel * faCityShH() / 27;
 // kreslená poloha armády: pri meste sa štít mierne odsunie, aby nezakryl štít mesta (len kresba a klik, nie herná poloha)
 //  fro-036: odsun podľa ikony armády (pevná veľkosť na obrazovke, 29_field_icon.js)
+const FANC = { g: null, n: 0, m: new Map() };
+function faNearCity(x, y) {
+  const L = G.cities || [];
+  if (FANC.g !== G || FANC.n !== L.length) { FANC.g = G; FANC.n = L.length; FANC.m.clear(); }
+  const k = x + ',' + y; let r = FANC.m.get(k);
+  if (!r) {
+    let c = null, bd = 1e9; L.forEach(q => { const d = Math.hypot(q.x - x, q.y - y); if (d < bd) { bd = d; c = q; } });
+    if (FANC.m.size > 4000) FANC.m.clear();
+    r = { c, d: bd }; FANC.m.set(k, r);
+  }
+  return r;
+}
 function faDrawPos(a) {
   const hc = faCityShH(), ha = typeof faIconHalf === 'function' ? faIconHalf().w * 2 : faArmyS() * 27, need = hc * .62 + ha * .62;
-  let c = null, bd = 1e9; (G.cities || []).forEach(x => { const d = Math.hypot(x.x - a.x, x.y - a.y); if (d < bd) { bd = d; c = x; } });
+  // fro-077: najbližšie mesto k polohe (mestá sa nehýbu) z cache — kresba volá faDrawPos každú snímku pre každú armádu
+  const NC = faNearCity(a.x, a.y), c = NC.c, bd = NC.d;
   if (!c || bd >= need) return { x: a.x, y: a.y };
   let dx = a.x - c.x, dy = a.y - c.y; const L = Math.hypot(dx, dy);
   if (L < 1e-3) { dx = .8; dy = .6; } else { dx /= L; dy /= L; }
